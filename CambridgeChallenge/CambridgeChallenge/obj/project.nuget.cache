@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "w6ziY+EvlLQD05sM9kBBQn3Y3RI7dXXfh306xtdP75LReMKKqOAjbFAQ1ebtr3BLgOq3MpQMMP/g5EqehLzEaA==",
+  "dgSpecHash": "0wa6tIIwWQl+MICAwScERZUTEVUtG4+p6n/b73i7tnLOVn3nFYXUqRlPZkM178UGqHjLrJ6F32sojPgRGtuRTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\fpizz\\OneDrive\\Documents\\Spring2023\\FullTimeWork\\CityOfCambridge\\CSharpSolution\\coc-csharp-solution\\CambridgeChallenge\\CambridgeChallenge\\CambridgeChallenge.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\fpizz\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\fpizz\\.nuget\\packages\\octokit\\5.0.2\\octokit.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

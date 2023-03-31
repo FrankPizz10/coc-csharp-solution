@@ -5,6 +5,16 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Frank Pizzella</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome Frank</h1>
+    <ul class="events-list">
+        @foreach (var item in Model.events)
+        {
+            <li class="event">
+                <h2>@item.Title</h2>
+                <div class="date"><strong>Date:</strong> @item.Start - @item.End</div>
+                <div class="description">@item.Description</div>
+                <a class="link" href="@item.Link">Learn more</a>
+            </li>
+        }
+    </ul>
 </div>

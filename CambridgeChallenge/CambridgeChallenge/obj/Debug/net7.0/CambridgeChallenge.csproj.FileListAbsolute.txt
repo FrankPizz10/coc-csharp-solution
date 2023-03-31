@@ -29,3 +29,6 @@ C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharp
 C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\obj\Debug\net7.0\CambridgeChallenge.pdb
 C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\obj\Debug\net7.0\CambridgeChallenge.genruntimeconfig.cache
 C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\obj\Debug\net7.0\ref\CambridgeChallenge.dll
+C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\bin\Debug\net7.0\Octokit.dll
+C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge\obj\Debug\net7.0\CambridgeChallenge.csproj.CopyComplete

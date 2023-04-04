@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\fpizz\OneDrive\Documents\Spring2023\FullTimeWork\CityOfCambridge\CSharpSolution\coc-csharp-solution\CambridgeChallenge\CambridgeChallenge
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/fpizz/OneDrive/Documents/Spring2023/FullTimeWork/CityOfCambridge/CSharpSolution/coc-csharp-solution/CambridgeChallenge/CambridgeChallenge/Components/Date.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fpizz/OneDrive/Documents/Spring2023/FullTimeWork/CityOfCambridge/CSharpSolution/coc-csharp-solution/CambridgeChallenge/CambridgeChallenge/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

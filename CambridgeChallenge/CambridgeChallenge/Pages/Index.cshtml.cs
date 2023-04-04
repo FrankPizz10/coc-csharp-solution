@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using Octokit;
 using System.Diagnostics;
 
 namespace CambridgeChallenge.Pages
@@ -16,6 +15,15 @@ namespace CambridgeChallenge.Pages
         [BindProperty]
         public List<EventModel> events { get; set; }
 
+        [BindProperty]
+        public Dictionary<string, List<EventModel>> dateDictionary { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int cols { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int rows { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -25,27 +33,60 @@ namespace CambridgeChallenge.Pages
         public async Task OnGetAsync()
         {
             await getEventsData();
+            setDateDictionary();
+            if (this.cols < 2 || this.cols > 6)
+            {
+                this.cols = 3;
+            }
+            if (this.rows < 1 || this.rows > 8)
+            {
+                this.rows = 4;
+            }
         }
 
         public async Task getEventsData()
         {
-            string path = "https://www.cambridgema.gov/GetEvents.ashx?format=json&view=homepage";
+            var path = "https://www.cambridgema.gov/GetEvents.ashx?format=json&view=homepage";
 
-            HttpRequestMessage httpRequestMessage = new HttpRequestMessage();
+            var httpRequestMessage = new HttpRequestMessage();
 
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(path);
+                var response = await _httpClient.GetAsync(path);
 
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                this.events = JsonConvert.DeserializeObject<List<EventModel>>(responseContent);
-
-                Debug.WriteLine("Events: " + this.events[0].Title);
+                if (string.IsNullOrWhiteSpace(responseContent))
+                {
+                    Debug.WriteLine("No data received from server.");
+                    this.events = new List<EventModel>();
+                }
+                else
+                {
+                    this.events = JsonConvert.DeserializeObject<List<EventModel>>(responseContent);
+                }
             }
             catch (HttpRequestException exception) 
             {
+                this.events = new List<EventModel>();
                 Debug.WriteLine("An HTTP request exception occurred.", exception.Message);
+            }
+        }
+
+        public void setDateDictionary()
+        {   
+            this.dateDictionary = new Dictionary<string, List<EventModel>>();
+            foreach (var item in this.events)
+            {
+                var date = item.Start.Substring(0, 10);
+                if (!this.dateDictionary.ContainsKey(date))
+                {
+                    this.dateDictionary[date] = new List<EventModel> { item };
+                }
+                else
+                {
+                    this.dateDictionary[date].Add(item);
+                }
             }
         }
     }

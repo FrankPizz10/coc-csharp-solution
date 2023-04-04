@@ -1,0 +1,102 @@
+﻿@using CambridgeChallenge.Models;
+@using System.Diagnostics;
+
+@for (var i = 0; i < calcRows(); i++)
+{   
+    if (this.curRow + i >= this.maxRow) break;
+    <tr class="py-2 align-top">
+        @if (i == 0)
+        {
+            <td class="px-2">
+                <div class="card mx-auto rounded-lg" style="width: 80px">
+                    <div class="card-header bg-danger text-white text-center">
+                        @getMonth()
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@getDay()</h5>
+                        <h6 class="card-text text-center">@getDayOfWeek()</h6>
+                    </div>
+                </div>
+            </td>
+        }
+        else
+        {
+            <td class="mx-4"></td>
+        }
+        @for (var j = 0; j < cols; j++)
+        {
+            var index = (i * cols) + j;
+            @if (index < events.Count)
+            {
+                <td class="px-2" style="height: 100px">
+                    <div class="card rounded h-100">
+                        <div class="card-header text-center h-20">
+                            <h5>@events[index].Title</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>@formatDate(events[index])</h6>
+                            <p>@events[index].Description</p>
+                            <a href="@events[index].Link">Learn more</a>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td class="mx-4"></td>
+            }
+        }
+    </tr>
+ 
+}
+@code {
+    [Parameter]
+    public int cols { get; set; }
+
+    [Parameter]
+    public string date { get; set; }
+
+    [Parameter]
+    public List<EventModel> events { get; set; }
+
+    [Parameter]
+    public int curRow { get; set; }
+
+    [Parameter]
+    public int maxRow { get; set; }
+
+    // Calculates the number of rows needed for a given date
+    public int calcRows()
+    {
+        var rows = Models.EventModel.rowsForDate(this.events.Count, this.cols);
+        return rows;
+    }
+
+    // Extract the time of the event from event start
+    public string formatDate(EventModel ev)
+    {
+        DateTime datetime = DateTime.Parse(ev.Start);
+        return datetime.ToString("h:mm tt");
+    }
+
+    // Extract the month from item.Start and return it
+    public string getMonth()
+    {  
+        DateTime datetime = DateTime.Parse(date);
+        return datetime.ToString("MMMM");
+    }
+
+    // Extract the day from item.Start and return it
+    public int getDay()
+    {
+        DateTime datetime = DateTime.Parse(date);
+        return datetime.Day;
+    }
+
+    // Extract the day of week from item.Start and return it
+    public string getDayOfWeek()
+    {
+        DateTime datetime = DateTime.Parse(date);
+        return datetime.ToString("ddd");
+    }
+}

@@ -1,20 +1,29 @@
 ﻿@page
 @model IndexModel
+@using CambridgeChallenge
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Frank</h1>
-    <ul class="events-list">
-        @foreach (var item in Model.events)
+<div>
+    <div class="d-flex flex-row align-items-center" style="width: 100%">
+        <h1 class="px-2">Coming Up</h1>
+        <hr class="rounded" style="width: 80%; background-color: #FF0000; height: 2px" />
+    </div>
+    <table class="table table-responsive">
+        @{var i = 0;}
+        @foreach (var item in Model.dateDictionary.Keys)
         {
-            <li class="event">
-                <h2>@item.Title</h2>
-                <div class="date"><strong>Date:</strong> @item.Start - @item.End</div>
-                <div class="description">@item.Description</div>
-                <a class="link" href="@item.Link">Learn more</a>
-            </li>
+            <component 
+                type="typeof(Components.Date)" 
+                render-mode="Static" param-date="@item" 
+                param-cols="@Model.cols"
+                param-currow="@i"
+                param-maxrow="@Model.rows"
+                param-events="@Model.dateDictionary[item]"/>
+            i += Models.EventModel.rowsForDate(Model.dateDictionary[item].Count, Model.cols);
         }
-    </ul>
+    </table> 
 </div>
+
+

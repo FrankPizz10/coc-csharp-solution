@@ -7,14 +7,14 @@
     <tr class="py-2 align-top">
         @if (i == 0)
         {
-            <td class="px-2">
-                <div class="card mx-auto rounded-lg" style="width: 80px">
-                    <div class="card-header bg-danger text-white text-center">
+            <td>
+                <div class="card rounded-lg" style="width: 80px; height: 100%">
+                    <h6 class="card-header bg-danger text-white text-center">
                         @getMonth()
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">@getDay()</h5>
-                        <h6 class="card-text text-center">@getDayOfWeek()</h6>
+                    </h6>
+                    <div class="card-body py-1">
+                        <h3 class="card-title text-center">@getDay()</h3>
+                        <h5 class="card-text text-center">@getDayOfWeek()</h5>
                     </div>
                 </div>
             </td>
